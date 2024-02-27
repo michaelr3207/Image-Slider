@@ -2,7 +2,6 @@ import {UIDisplay} from "./Classes/UIDisplay";
 
 
 function main() {
-    console.log('sdfsfjsd');
     const uiDisplay = new UIDisplay();
     addEventListenerToButtons(uiDisplay);
 

@@ -29,7 +29,7 @@ class UIDisplay {
         this.addImageToDisplay(this.indexOfCurrentImage);
     }
 
-    createArrayOfImages() {
+    createArrayOfImages() {  // ToDO - refactor code into its own Image class
         let images = [];
         const bell = new Image();
         const check = new Image();
@@ -46,6 +46,11 @@ class UIDisplay {
         face.id = '2';
         face2.id = '3';
         magnify.id = '4';
+        bell.className = 'imgOnDisplay';
+        check.className = 'imgOnDisplay';
+        face.className = 'imgOnDisplay';
+        face2.className = 'imgOnDisplay';
+        magnify.className = 'imgOnDisplay';
         images.push(bell);
         images.push(check);
         images.push(face);
