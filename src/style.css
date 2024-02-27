@@ -45,6 +45,7 @@ body, html {
 .imageDisplay {
     grid-row: 2/3;
     border: 2px solid pink;
+    align-items: center;
 }
 
 /*.nextBtn{*/
@@ -81,4 +82,12 @@ body, html {
 
 .skipBtn:hover {
     background: navy;
+}
+
+.imgOnDisplay {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 80%;
 }
