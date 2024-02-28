@@ -3,7 +3,8 @@ import {UIDisplay} from "./Classes/UIDisplay";
 
 function main() {
     let currentImage = 0;
-    // const uiDisplay = new UIDisplay(currentImage);
+    const uiDisplay = new UIDisplay(currentImage);
+    const arrOfImages = uiDisplay.allImages;
     // addImageToDisplay2(uiDisplay.indexOfCurrentImage, uiDisplay);
 
     setInterval(() => {
@@ -14,7 +15,7 @@ function main() {
         addEventListenerToButtons(uiDisplayNew);
     },  3000);
 }
-
+// comm ent
 function addEventListenerToButtons(uiDisplay, currentImage) {
     const nextButton = document.getElementById("nextBtn");
     const previousButton = document.getElementById("prevBtn");
