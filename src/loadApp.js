@@ -2,21 +2,47 @@ import {UIDisplay} from "./Classes/UIDisplay";
 
 
 function main() {
-    const uiDisplay = new UIDisplay();
-    addEventListenerToButtons(uiDisplay);
+    let currentImage = 0;
+    // const uiDisplay = new UIDisplay(currentImage);
+    // addImageToDisplay2(uiDisplay.indexOfCurrentImage, uiDisplay);
 
-    uiDisplay.addImageToDisplay(uiDisplay.indexOfCurrentImage);
+    setInterval(() => {
+        const uiDisplayNew = new UIDisplay(currentImage);
+        uiDisplayNew.imageDisplay.innerHTML = '';
+        uiDisplayNew.nextImage();
+        currentImage = uiDisplayNew.indexOfCurrentImage;
+        addEventListenerToButtons(uiDisplayNew);
+    },  3000);
 }
 
-function addEventListenerToButtons(uiDisplay) {
+function addEventListenerToButtons(uiDisplay, currentImage) {
     const nextButton = document.getElementById("nextBtn");
     const previousButton = document.getElementById("prevBtn");
     nextButton.addEventListener("click",() => {
         uiDisplay.nextImage();
+        currentImage ++;
+        adjustId(currentImage);
     });
     previousButton.addEventListener("click",() => {
         uiDisplay.previousImage();
+        currentImage --;
+        adjustId(currentImage);
     });
 }
 
-export {main, addEventListenerToButtons};
+function  addImageToDisplay2(index, uIDisplay) {
+    console.log(`this is the index -----> ${index}`);
+    const imageToBeAdded = uIDisplay.allImages[index];
+    uIDisplay.imageDisplay.innerHTML = '';
+    uIDisplay.imageDisplay.appendChild(imageToBeAdded);
+}
+
+function adjustId(currentImage) {
+    if(currentImage === 4)
+        currentImage = 0;
+    else if (currentImage === 0)
+        currentImage = 4;
+    return currentImage;
+}
+
+export {main, addEventListenerToButtons, addImageToDisplay2};
