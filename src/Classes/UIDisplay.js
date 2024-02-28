@@ -3,6 +3,7 @@ import Check from '../Images/check-outline.png';
 import Face from '../Images/facebook-messenger.png';
 import Face2 from '../Images/fbFace.jpg';
 import Magnify from '../Images/magnify.png';
+import {clearTimeoutNew, imageTimer, timeoutId} from "../loadApp";
 
 class UIDisplay {
 
@@ -14,6 +15,8 @@ class UIDisplay {
     }
 
     nextImage(){
+        clearTimeoutNew();
+        imageTimer(this);
         if(this.indexOfCurrentImage === 4)
             this.indexOfCurrentImage = 0;
         else
@@ -22,6 +25,8 @@ class UIDisplay {
     }
 
     previousImage() {
+        clearTimeoutNew();
+        // imageTimer(this);
         if(this.indexOfCurrentImage === 0)
             this.indexOfCurrentImage = 4;
         else
