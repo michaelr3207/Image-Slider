@@ -3,29 +3,22 @@ import Check from '../Images/check-outline.png';
 import Face from '../Images/facebook-messenger.png';
 import Face2 from '../Images/fbFace.jpg';
 import Magnify from '../Images/magnify.png';
-import {addImageToDisplay2} from "../loadApp";
 
 class UIDisplay {
 
-    static id = 0;
-
-    constructor(currentImage) {
-        if(currentImage === null)
-            this.indexOfCurrentImage = 0;
-        else
-            this.indexOfCurrentImage = currentImage;
+    constructor() {
+        this.indexOfCurrentImage = 0;
         this.allImages = this.createArrayOfImages();
         this.currentImage = document.getElementById('displayedImg');
         this.imageDisplay = document.getElementById('displayOfImage');
     }
-
 
     nextImage(){
         if(this.indexOfCurrentImage === 4)
             this.indexOfCurrentImage = 0;
         else
             this.indexOfCurrentImage ++;
-        addImageToDisplay2(this.indexOfCurrentImage, this);
+        this.addImageToDisplay(this.indexOfCurrentImage);
     }
 
     previousImage() {
@@ -33,7 +26,7 @@ class UIDisplay {
             this.indexOfCurrentImage = 4;
         else
             this.indexOfCurrentImage --;
-        addImageToDisplay2(this.indexOfCurrentImage, this);
+        this.addImageToDisplay(this.indexOfCurrentImage);
     }
 
     createArrayOfImages() {  // ToDO - refactor code into its own Image class
