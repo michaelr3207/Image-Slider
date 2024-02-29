@@ -15,8 +15,6 @@ class UIDisplay {
     }
 
     nextImage(){
-        clearTimeoutNew();
-        imageTimer(this);
         if(this.indexOfCurrentImage === 4)
             this.indexOfCurrentImage = 0;
         else
@@ -25,8 +23,6 @@ class UIDisplay {
     }
 
     previousImage() {
-        clearTimeoutNew();
-        // imageTimer(this);
         if(this.indexOfCurrentImage === 0)
             this.indexOfCurrentImage = 4;
         else

@@ -15,7 +15,7 @@ body, html {
     margin: auto;
     width: 75%;
     height: 70%;
-    margin-top: 10%;
+    margin-top: 5%;
     border-style: double;
     display: grid;
     grid-template-columns: 0.75fr 3fr 0.75fr;
@@ -90,4 +90,18 @@ body, html {
     margin-right: auto;
     width: 50%;
     height: 80%;
+}
+
+.btnBox {
+    display: flex;
+    margin: auto;
+    margin-top: 2%;
+    width: 10%;
+    height: 7%;
+    justify-content: space-between;
+}
+
+.btnBox button {
+    width: 30%;
+    background: rgba(205, 133, 63, 0.71);
 }
