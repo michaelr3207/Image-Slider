@@ -8,26 +8,29 @@ import {clearTimeoutNew, imageTimer, timeoutId} from "../loadApp";
 class UIDisplay {
 
     constructor() {
+        this.indexOfLastImage = 4;
+        this.indexOfFirstImage = 0;
         this.indexOfCurrentImage = 0;
         this.allImages = this.createArrayOfImages();
-        this.currentImage = document.getElementById('displayedImg');
         this.imageDisplay = document.getElementById('displayOfImage');
     }
 
     nextImage(){
-        if(this.indexOfCurrentImage === 4)
-            this.indexOfCurrentImage = 0;
+        if(this.indexOfCurrentImage === this.indexOfLastImage)  // sets image back to first
+            this.indexOfCurrentImage = this.indexOfFirstImage;
         else
             this.indexOfCurrentImage ++;
         this.addImageToDisplay(this.indexOfCurrentImage);
+        this.changeImageSelectorColor(this.indexOfCurrentImage);
     }
 
     previousImage() {
-        if(this.indexOfCurrentImage === 0)
+        if(this.indexOfCurrentImage === this.indexOfFirstImage)
             this.indexOfCurrentImage = 4;
         else
             this.indexOfCurrentImage --;
         this.addImageToDisplay(this.indexOfCurrentImage);
+        this.changeImageSelectorColor(this.indexOfCurrentImage);
     }
 
     createArrayOfImages() {  // ToDO - refactor code into its own Image class
@@ -65,6 +68,15 @@ class UIDisplay {
         const imageToBeAdded = this.allImages[index];
         this.imageDisplay.innerHTML = '';
         this.imageDisplay.appendChild(imageToBeAdded);
+    }
+
+    changeImageSelectorColor(indexOfImage) {
+        const allSelectors = document.querySelectorAll('.displayImageBtn');
+        const selectorToBeChanged = document.getElementById(`${this.indexOfCurrentImage.toString()}displayImageBtn`);
+        allSelectors.forEach((selector) => {
+            selector.style.background = 'red';
+        })
+        selectorToBeChanged.style.background = 'green';
     }
 }
 

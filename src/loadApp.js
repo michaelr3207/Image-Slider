@@ -1,7 +1,5 @@
 import {UIDisplay} from "./Classes/UIDisplay";
 
-let timeLeft = 5;
-
 //ToDO add in button to allow the user to choose between manually running the slideshow and it auto running
 
 function main() {
@@ -33,18 +31,5 @@ function addEventListenerToButtons(uiDisplay) {
     });
 }
 
-// function imageTimer(uiDisplay) {
-//     const timeoutId = setTimeout(() => {
-//         console.log('br');
-//         uiDisplay.nextImage();
-//     }, 2000);
-//
-//     if(!timeoutId)
-//         clearTimeout(timeoutId);
-// }
-//
-// function clearTimeoutNew() {
-//     clearTimeout(timeoutId);
-// }
 
 export {main, addEventListenerToButtons};
