@@ -8,9 +8,10 @@ import {clearTimeoutNew, imageTimer, timeoutId} from "../loadApp";
 class UIDisplay {
 
     constructor() {
+        this.slideShowRunning = false;
         this.indexOfLastImage = 4;
         this.indexOfFirstImage = 0;
-        this.indexOfCurrentImage = 0;
+        this.indexOfCurrentImage = 0;  // set to first image
         this.allImages = this.createArrayOfImages();
         this.imageDisplay = document.getElementById('displayOfImage');
     }
@@ -21,7 +22,7 @@ class UIDisplay {
         else
             this.indexOfCurrentImage ++;
         this.addImageToDisplay(this.indexOfCurrentImage);
-        this.changeImageSelectorColor(this.indexOfCurrentImage);
+        // this.changeImageSelectorColor(this.indexOfCurrentImage);
     }
 
     previousImage() {
@@ -30,7 +31,7 @@ class UIDisplay {
         else
             this.indexOfCurrentImage --;
         this.addImageToDisplay(this.indexOfCurrentImage);
-        this.changeImageSelectorColor(this.indexOfCurrentImage);
+        // this.changeImageSelectorColor(this.indexOfCurrentImage);
     }
 
     createArrayOfImages() {  // ToDO - refactor code into its own Image class
@@ -65,18 +66,27 @@ class UIDisplay {
     }
 
     addImageToDisplay(index) {
-        const imageToBeAdded = this.allImages[index];
+        console.log(`${index} pppp`)
         this.imageDisplay.innerHTML = '';
-        this.imageDisplay.appendChild(imageToBeAdded);
+        this.imageDisplay.appendChild( this.allImages[index]);
+        this.changeImageSelectorColor(index);
     }
 
     changeImageSelectorColor(indexOfImage) {
         const allSelectors = document.querySelectorAll('.displayImageBtn');
-        const selectorToBeChanged = document.getElementById(`${this.indexOfCurrentImage.toString()}displayImageBtn`);
+        const selectorToBeChanged = document.getElementById(`${indexOfImage.toString()}displayImageBtn`);
         allSelectors.forEach((selector) => {
             selector.style.background = 'red';
         })
         selectorToBeChanged.style.background = 'green';
+    }
+
+    checkIfSlideShowIsRunning() {
+        return this.slideShowRunning;
+    }
+
+    setSlideShowRunning(entry) {
+        this.slideShowRunning = entry;
     }
 }
 
