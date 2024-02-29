@@ -5,12 +5,12 @@ import {UIDisplay} from "./Classes/UIDisplay";
 function main() {
     const uiDisplay = new UIDisplay();
     addEventListenerToButtons(uiDisplay);
+    addEventListenerToSelectorButtons(uiDisplay);
     uiDisplay.addImageToDisplay(uiDisplay.indexOfCurrentImage);
 }
 
 function addEventListenerToButtons(uiDisplay) {
     let timeOut;
-    const allSelectors = document.querySelectorAll('.displayImageBtn');
     const nextButton = document.getElementById("nextBtn");
     const previousButton = document.getElementById("prevBtn");
     const startButton = document.getElementById('startBtn');
@@ -46,19 +46,18 @@ function addEventListenerToButtons(uiDisplay) {
        clearInterval(timeOut);
         uiDisplay.setSlideShowRunning(false);
     });
+}
 
+function addEventListenerToSelectorButtons(uiDisplay) {
+    const allSelectors = document.querySelectorAll('.displayImageBtn');
     for(let item of allSelectors) {
         item.addEventListener("click", () => {
-           uiDisplay.addImageToDisplay(Number.parseInt(item.id));
+            uiDisplay.addImageToDisplay(Number.parseInt(item.id));
             clearInterval(timeOut);
             uiDisplay.setSlideShowRunning(false);
         });
     }
 }
-
-// function startOrEndSlideShow(uiDisplay) {
-//     if(uiDisplay.checkIfSlideShowIsRunning()){}
-// }
 
 
 export {main, addEventListenerToButtons};
