@@ -22,7 +22,6 @@ class UIDisplay {
         else
             this.indexOfCurrentImage ++;
         this.addImageToDisplay(this.indexOfCurrentImage);
-        // this.changeImageSelectorColor(this.indexOfCurrentImage);
     }
 
     previousImage() {
@@ -31,7 +30,6 @@ class UIDisplay {
         else
             this.indexOfCurrentImage --;
         this.addImageToDisplay(this.indexOfCurrentImage);
-        // this.changeImageSelectorColor(this.indexOfCurrentImage);
     }
 
     createArrayOfImages() {  // ToDO - refactor code into its own Image class
@@ -46,22 +44,17 @@ class UIDisplay {
         face.src = Face;
         face2.src = Face2;
         magnify.src = Magnify;
-        bell.id = '0';
-        check.id = '1';
-        face.id = '2';
-        face2.id = '3';
-        magnify.id = '4';
-        bell.className = 'imgOnDisplay';
-        check.className = 'imgOnDisplay';
-        face.className = 'imgOnDisplay';
-        face2.className = 'imgOnDisplay';
-        magnify.className = 'imgOnDisplay';
         images.push(bell);
         images.push(check);
         images.push(face);
         images.push(face2);
         images.push(magnify);
-
+        let count = 0;
+        images.forEach(image => {
+            image.className = 'imgOnDisplay';
+            image.id = count.toString();
+            count++;
+        });
         return images;
     }
 
