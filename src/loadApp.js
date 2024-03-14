@@ -1,7 +1,5 @@
 import {UIDisplay} from "./Classes/UIDisplay";
 
-//ToDO add in button to allow the user to choose between manually running the slideshow and it auto running
-
 function main() {
     const uiDisplay = new UIDisplay();
     addEventListenerToButtons(uiDisplay);
@@ -29,7 +27,7 @@ function addEventListenerToButtons(uiDisplay) {
 
     startButton.addEventListener("click", () => {
         if(uiDisplay.checkIfSlideShowIsRunning()){
-            alert(`ERROR: SLideshow is running already!`);
+            alert(`ERROR: Slideshow is running already!`);
             return;
         }
        timeOut =  setInterval(() => {

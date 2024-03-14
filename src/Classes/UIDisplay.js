@@ -3,7 +3,6 @@ import Check from '../Images/check-outline.png';
 import Face from '../Images/facebook-messenger.png';
 import Face2 from '../Images/fbFace.jpg';
 import Magnify from '../Images/magnify.png';
-import {clearTimeoutNew, imageTimer, timeoutId} from "../loadApp";
 
 class UIDisplay {
 
@@ -32,7 +31,7 @@ class UIDisplay {
         this.addImageToDisplay(this.indexOfCurrentImage);
     }
 
-    createArrayOfImages() {  // ToDO - refactor code into its own Image class
+    createArrayOfImages() {
         let images = [];
         const bell = new Image();
         const check = new Image();
@@ -59,7 +58,6 @@ class UIDisplay {
     }
 
     addImageToDisplay(index) {
-        console.log(`${index} pppp`)
         this.imageDisplay.innerHTML = '';
         this.imageDisplay.appendChild( this.allImages[index]);
         this.changeImageSelectorColor(index);
